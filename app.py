@@ -6,7 +6,6 @@ import tweepy
 import requests
 import json
 import re
-from IPython import embed
 
 app = Flask(__name__)
 
