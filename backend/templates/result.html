@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Flask Test</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+   <header>
+  　　<div class="heading">
+        <h1 class="title">自然言語処理によるポジティブ度診断</h1>
+      </div>
+       <div class="navbar">
+       <ul class="nav-lists">
+        <li><a href="https://chinese-grammer-wordusage.herokuapp.com/">ツイッター自動投稿・フォローボット</a></li>
+        <li><a href="https://japanese-grammer-wordusage.herokuapp.com/">ツイッター</a></li>
+       </ul>
+     </div>
+    </header>
+  <div style="min-height: 90vh;" class="main">
+    <div style="width: 50%; background-color: white;" class="bottom-content2">
+      <h2 class="heading-name">
+        {% if answer >= 10 %}
+        <p class="list">ポジティブなツイートの中で使われているようです({{answer}})</p>
+        {% elif 10 > answer > 0 %}
+        <p class="list">どちらかといえばポジティブなツイートの中で使われているようです({{answer}})</p>    
+        {% elif -10 >= answer %}
+        <p class="list">ネガティブなツイートの中で使われているようです({{answer}})</p>
+        {% elif 0 > answer >-10 %}
+        <p class="list">どちらかといえばネガティブなツイートの中で使われているようです({{answer}})</p>    
+        {% elif 0 == answer %}
+        <p class="list">中立的なツイートの中で使われているようです({{answer}})</p>    
+        {% endif %}
+        <meter style="height: 7em; width: 25em;" class="vertical" min="-30" max="30" low="-10" high="10" optimum="15" value="{{answer}}">
+      </h2>
+      <div style="display: flex; justify-content: center; margin-bottom: 100px;" class="box">
+        <div style="font-size: 12px; height: 55px; width: 100px; background-color: red;" class="vertical-red">
+          <p style="text-align: center;">ネガティブ<br>（-10以下）</p>
+        </div>
+        <div style="font-size: 12px; height: 55px; width: 100px; background-color: rgb(248, 48, 205);" class="vertical-red">
+          <p style="text-align: center;">どちらかといえばネガティブ<br>（−9以上-1以下）</p>
+        </div>
+        <div style="font-size: 12px; height: 55px; width: 100px; background-color:yellow;" class="vertical-yellow">
+          <p style="text-align: center;">中立<br>（0）</p>
+        </div>
+        <div style="font-size: 12px; height: 55px; width: 100px; background-color: rgb(0, 255, 76);" class="vertical-red">
+          <p style="text-align: center;">どちらかといえばポジティブ<br>（1以上9以下）</p>
+        </div>
+        <div style="font-size: 12px; height: 55px; width: 100px; background-color:green;" class="vertical-green">
+          <p style="text-align: center;">ポジティブ<br>（10以上）</p>
+        </div>
+      </div>
+
+      {% for link, score in tweet_positive.items(): %}
+            <p>以下がポジティブなツイートです</p>
+            <a href="{{link}}">ポジティブなツイート({{score}})</a>
+            <p>------------------------------------------</p>
+      {% endfor %}
+      {% for link, score in tweet_negative.items(): %}
+            <p>以下がネガティブなツイートです</p>
+            <a href="{{link}}">ネガティブなツイート({{score}})</a>
+            <p>------------------------------------------</p>
+      {% endfor %}
+    </div>
+   </div>
+</body>
+</html>

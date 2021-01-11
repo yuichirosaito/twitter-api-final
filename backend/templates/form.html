@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Flask Test</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+  <header>
+    <div class="heading">
+      <h1 class="title">自然言語処理によるポジティブ度診断</h1>
+    </div>
+    <div class="navbar">
+      <ul class="nav-lists">
+        <li><a href="https://chinese-grammer-wordusage.herokuapp.com/">ツイッター自動投稿・フォローボット</a></li>
+        <li><a href="https://japanese-grammer-wordusage.herokuapp.com/">ツイッター</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="main">
+    <div class="bottom-content">
+        <form action="/" method="POST" class="contact-form">
+            <h2 class="heading-name">最新のツイート100件のポジティブ度とネガティブ度を分析し、平均値を算出します。任意のキーワードを入力してください。</h2>
+            <div class="form-group">
+                <label for="scores" class="label"></label>
+                <input class="small-field" type="text" name="msg" placeholder="キーワード">
+            </div>
+            <div class='login-btn'>
+                <button class="send" type="submit">結果を見る</button>
+            </div>
+        </form>
+    </div>
+   </div>
+   
+</body>
+</html>
