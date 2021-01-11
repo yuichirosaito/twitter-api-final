@@ -1,1 +1,1 @@
-web: gunicorn twitter-api-final : app --log-file -
+web: gunicorn app.py:app
