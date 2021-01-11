@@ -1,1 +1,1 @@
-web: gunicorn apl_name : app --log-file -
+web: gunicorn twitter-api-final : app --log-file -
