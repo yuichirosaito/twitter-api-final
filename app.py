@@ -51,11 +51,10 @@ def index():
         # ツイートを検索する（リプライは対象外とする）
         search_results = api.search(q=search_text, count=100, lang='ja', result_type='recent', exclude_replies=True)
 
-        # ツイートを感情分析して感情スコアが-0.7以下のものは、Slack投稿する文章に加えていく。
         tweet_dict = []
         tweet_positive = {}
         tweet_negative = {}
-        max_analysis_count = 5
+        max_analysis_count = 20
         analysis_count = 0
         for status in search_results:
             # 感情分析の回数上限になったら感情分析処理をやめる
