@@ -94,7 +94,7 @@ def index():
         f=float(answer)
         r=round(100*f)
 
-        return render_template('result.html', answer = r, tweet_positive = tweet_positive, tweet_negative = tweet_negative)
+        return render_template('result.html', answer = r, tweet_positive = tweet_positive, tweet_negative = tweet_negative, msg = msg)
     else:
         return render_template("form.html")
 

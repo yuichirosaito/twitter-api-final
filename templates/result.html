@@ -8,7 +8,7 @@
 
 <body>
    <header>
-  　　<div class="heading">
+    <div class="heading">
         <h1 class="title">自然言語処理によるポジティブ度診断</h1>
       </div>
        <div class="navbar">
@@ -22,15 +22,15 @@
     <div style="width: 50%; background-color: white;" class="bottom-content2">
       <h2 class="heading-name">
         {% if answer >= 10 %}
-        <p class="list">ポジティブなツイートの中で使われているようです({{answer}})</p>
+        <p class="list">{{msg}}はポジティブなツイートの中で使われているようです({{answer}})</p>
         {% elif 10 > answer > 0 %}
-        <p class="list">どちらかといえばポジティブなツイートの中で使われているようです({{answer}})</p>    
+        <p class="list">{{msg}}どちらかといえばポジティブなツイートの中で使われているようです({{answer}})</p>    
         {% elif -10 >= answer %}
-        <p class="list">ネガティブなツイートの中で使われているようです({{answer}})</p>
+        <p class="list">{{msg}}ネガティブなツイートの中で使われているようです({{answer}})</p>
         {% elif 0 > answer >-10 %}
-        <p class="list">どちらかといえばネガティブなツイートの中で使われているようです({{answer}})</p>    
+        <p class="list">{{msg}}どちらかといえばネガティブなツイートの中で使われているようです({{answer}})</p>    
         {% elif 0 == answer %}
-        <p class="list">中立的なツイートの中で使われているようです({{answer}})</p>    
+        <p class="list">{{msg}}中立的なツイートの中で使われているようです({{answer}})</p>    
         {% endif %}
         <meter style="height: 7em; width: 25em;" class="vertical" min="-30" max="30" low="-10" high="10" optimum="15" value="{{answer}}">
       </h2>
