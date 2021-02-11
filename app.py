@@ -54,7 +54,7 @@ def index():
         tweet_dict = []
         tweet_positive = {}
         tweet_negative = {}
-        max_analysis_count = 20
+        max_analysis_count = 10
         analysis_count = 0
         for status in search_results:
             # 感情分析の回数上限になったら感情分析処理をやめる
